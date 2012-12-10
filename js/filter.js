@@ -16,10 +16,14 @@ var filter = {
     display : function() {
         var html = '';
         html = '<p id="filter">';
-        html += '<span id="day-friday" filter="friday">Friday</span> ';
-        html += '<span id="day-saturday" filter="saturday">Saturday</span> ';
-        html += '<span id="day-sunday" filter="sunday">Sunday</span> ';
-        html += '<span id="day-all" filter="all">All</span>';
+        html += '<span id="day-sunday" filter="sunday">Sun</span>&thinsp;';
+        html += '<span id="day-monday" filter="monday">Mon</span>&thinsp;';
+        html += '<span id="day-tuesday" filter="tuesday">Tue</span>&thinsp;';
+        html += '<span id="day-wednesday" filter="wednesday">Wed</span>&thinsp;';
+        html += '<span id="day-thursday" filter="thursday">Thu</span>&thinsp;';
+        html += '<span id="day-fri" filter="fri">Fri</span>&thinsp;';
+        html += '<span id="day-saturday" filter="saturday">Sat</span>&thinsp;';
+        html += '<span id="day-all" filter="all">ALL</span>';
         html += '</p>';
         if (filter.query) {
             html += '<p id="query" class="only">';
@@ -38,7 +42,7 @@ var filter = {
         $("#day-"+filter.filter).addClass('current');
         
         // set callbacks
-        var days = ['friday', 'saturday', 'sunday', 'all'];
+        var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'fri', 'saturday', 'all'];
         for(day in days) {
             $("#day-"+days[day]).bind('click', function() {
                 $("#day-"+filter.filter).removeClass('current');
