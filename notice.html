@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Favorites</title>
+<title>Notices</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="js/json.js"></script>
@@ -12,10 +12,10 @@
             var html = '<p class="only">';
             var notice = JSON.parse(JSInterface.getNoticeJson());
             if(notice.didNotLoad) {
-                html += 'Unable to load a notice at this time. Check your internet connection.';
+                html += 'Unable to load notices at this time. Check your internet connection.';
             } else {
                 if(notice.notice == '') {
-                    html += 'There is no notice at this time.';
+                    html += 'There are no notices at this time.';
                 } else {
                     html += notice.notice;
                 }

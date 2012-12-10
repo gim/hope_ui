@@ -40,12 +40,12 @@ function formattedDate(timestamp) {
     var hours = date.getUTCHours();
     var am_pm = '';
     if (hours == 0) {
-        am_pm = 'am';
+        am_pm = 'midnight';
         hours = 12;
     } else if (hours < 12) {
         am_pm = 'am';
     } else if (hours == 12) {
-        am_pm = 'pm';
+        am_pm = 'noon';
     } else {
         am_pm = 'pm';
         hours -= 12;
@@ -58,7 +58,14 @@ function formattedDate(timestamp) {
     
     // day of the week
     var day = dayOfTalk(timestamp);
-    return day+' '+hours+':'+minutes+am_pm;
+	
+	// date
+	var dom = date.getUTCDate();
+	
+	// month
+	var month = monthOfTalk(timestamp);
+	
+    return day+' '+hours+':'+minutes+' '+am_pm+' '+dom+' '+month;
 }
 
 function dayOfTalk(timestamp) {
@@ -151,7 +158,7 @@ function displayTalks() {
     var html = '';
     
     if(!data.talks().length) {
-        html += '<p class="only">It looks like you don\'t have the schedule downloaded yet. You must open this app while connected to the internet at least once to download the schedule.</p>';
+        html += '<p class="only">It looks like you haven\'t downloaded the schedule yet. You must open this app while connected to the internet at least once to download the schedule.</p>';
         html += '<p id="force-download">Force Schedule Download Attempt</p>';
         $("#content").html(html);
         
