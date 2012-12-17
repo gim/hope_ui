@@ -61,7 +61,7 @@ if (!window.JSInterface) {
                 url: this.root + 'json.php',
                 dataType: 'jsonp'
             }).done (function (data) {
-                window.data.d = data;
+                window.data.setSchedule(data)
                 displayTalks();
             })
 

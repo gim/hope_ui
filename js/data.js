@@ -3,10 +3,17 @@ var data;
 var data = {
     d : null, 
     load : function() {
-        data.d = JSON.parse(window.JSInterface.getScheduleJson(false));
-        // fix timestamps
-        for(var i in data.d) {
-          data.d[i].timestamp -= (60*60*4);
+        schedule = JSON.parse(window.JSInterface.getScheduleJson(false));
+        this.setSchedule(schedule);
+    },
+    setSchedule : function(schedule) {
+        data.d = schedule;
+
+        now    = new Date();
+        offset = now.getTimezoneOffset() * 60;
+
+        for (var i in data.d) {
+            data.d[i].timestamp -= offset;
         }
     },
     loadForce : function() {
