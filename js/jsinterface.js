@@ -40,3 +40,48 @@ if (/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent)) {
             }
     }
 }
+
+if (!window.JSInterface) {
+    // This is a quick debugging implementation of the interfaces for use
+    // within a desktop webbrowser. It may not reliably keep state across
+    // pages, and includes some nasty races.
+    window.JSInterface = {
+        root        : "http://localhost:3000/",
+        filter      : "",
+        favorites   : "{ }",
+
+        // HACK: The current architecture assumes all JSInterface functions
+        // are blocking, but there does not appear to be a reliable way to
+        // simulate this in browser. As this function is only called by the
+        // initialisation routines on page load we quickly just call the
+        // display routine after jamming the schedule into 'data'.
+        getScheduleJson : function (forceDownload) {
+            "use strict";
+            $.ajax({
+                url: this.root + 'json.php',
+                dataType: 'jsonp'
+            }).done (function (data) {
+                window.data.d = data;
+                displayTalks();
+            })
+
+            return "{ }";
+        },
+
+        getFavorites : function ()
+            { return this.favorites; },
+
+        getFilter : function ()
+            { return this.filter; },
+
+        saveFilter : function (filter)
+            { this.filter = filter; },
+
+        saveFavorites : function (favorites)
+            { this.favorites = favorites; },
+
+        // HACK: This is an Android specific function.
+        haveCalendar : function ()
+            { return false; }
+    };
+}
