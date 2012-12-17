@@ -1,3 +1,5 @@
+var data;
+
 var data = {
     d : null, 
     load : function() {
