@@ -69,6 +69,8 @@ p#force-download {
     font-size: 18px;
     font-size: arial;
     color: #396c2f;
+    background-color: #111111;
+    opacity: 0.8;
     border-bottom: 2px solid #FFD02F;
     border-top: 2px solid #FFD02F;
     padding: 5px 0;
