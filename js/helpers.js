@@ -1,5 +1,6 @@
 function randomBackground() {
-    var randomNumber = Math.floor(Math.random()*4)+1;
+    var BACKGROUND_COUNT = 6;
+    var randomNumber = Math.floor(Math.random()*BACKGROUND_COUNT)+1;
     $("#body").css('background-image', 'url("images/background'+randomNumber+'.jpg")');
 }
 
