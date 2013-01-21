@@ -37,7 +37,9 @@ if (/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent)) {
             },
             saveFilter : function(filter) {
                     JSInterface.runCommand('hope://saveFilter/'+filter);
-            }
+            },
+            haveCalendar : function ()
+                { return false; }
     }
 }
 
