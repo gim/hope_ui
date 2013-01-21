@@ -10,11 +10,12 @@ body {
     background-position: top center;
     background-repeat: no-repeat;
     background-attachment: scroll;
+    background-size: 100% auto;
     font-family: courier;
 }
 
 #wrapper {
-    width:300px;
+    width:100%;
 }
 
 #content {
@@ -66,7 +67,7 @@ p#force-download {
 #filter {
     text-align: center;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     font-size: arial;
     color: #396c2f;
     background-color: #111111;
@@ -84,8 +85,9 @@ p#force-download {
 }
 
 .talk {
-    width: 300px;
+    width: 90%;
     font-size: 14px;
+    margin-left: 2.5%;
     margin-bottom: 5px;
     padding: 5px;
     background-color: #111111;
@@ -105,7 +107,7 @@ p#force-download {
 }
 
 .talk .content {
-    width: 255px;
+    width: 80%;
     float: left;
 }
 
@@ -137,7 +139,7 @@ p#force-download {
 }
 
 .talk .speaker-bio {
-    width: 243px;
+    width: 95%;
     margin-top: 5px;
     font-size: 13px;
     padding: 5px;
