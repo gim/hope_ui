@@ -9,7 +9,7 @@ body {
     background-image: url("images/background1.jpg");
     background-position: top center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-attachment: fixed;
     background-size: 100% auto;
     font-family: courier;
 }
